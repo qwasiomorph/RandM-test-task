@@ -1,0 +1,100 @@
+@import "../../styles/variables.scss";
+
+.label {
+  display: none;
+  transform: translateY(2rem);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.status {
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 0.375rem;
+  margin-bottom: 0.125rem;
+  background: $status-unknown;
+  border-radius: 50%;
+}
+
+.Alive {
+  background: $status-alive;
+}
+
+.Dead {
+  background: $status-dead;
+}
+
+.expandedInfo {
+  display: none;
+  transform: translateY(2rem);
+  opacity: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  &__item {
+    $item-padding: 1rem;
+    $img-size: 50px;
+    background-color: $list-item-bg;
+    padding: $item-padding calc($item-padding * 2);
+    flex-basis: calc($img-size + $item-padding * 2);
+    border-radius: calc($item-padding * 2 + $img-size);
+    display: grid;
+    grid-template-columns: 1fr;
+    transition: all 500ms;
+    max-width: 500px;
+    &--hasImage {
+      grid-template-columns: 60px 1fr;
+      padding: $item-padding;
+      .imgWrap {
+        display: flex;
+        img {
+          border-radius: 100vw;
+          width: $img-size;
+        }
+      }
+
+      &:hover {
+        flex-basis: clamp(13rem, 20vh, 20rem);
+        padding: 1.5em;
+        grid-template-columns: 150px 1fr;
+        border-radius: 3rem;
+        div {
+          display: flex;
+          align-items: center;
+          img {
+            border-radius: 1.5em;
+            width: calc($img-size * 3);
+            height: calc($img-size * 3);
+          }
+        }
+        .flexWrapper {
+          padding: 0 1rem;
+          flex-direction: column;
+          align-items: stretch;
+          .expandedInfo {
+            display: block;
+            transform: translateY(0);
+            opacity: 100;
+          }
+          @media (min-width: 760) {
+            .label {
+              align-self: stretch;
+              display: inline-block;
+              transform: translateY(0);
+              opacity: 100;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    .flexWrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
