@@ -1,0 +1,64 @@
+@import "../../styles/variables.scss";
+
+.container {
+  margin: 0;
+  font-size: 1rem;
+  background: $header-nav-bg;
+  color: $text-color;
+  padding: 0.5rem 1rem;
+  padding-bottom: 0;
+  .imgContainer {
+    display: flex;
+    justify-content: space-between;
+    a {
+      width: fit-content;
+      display: flex;
+    }
+  }
+  nav {
+    background-color: $header-nav-bg;
+    position: sticky;
+    top: 0;
+    .navList {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      font-size: 1rem;
+      padding-top: 1rem;
+      li {
+        min-width: none;
+        padding: 1rem 0.5rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 15px 15px 0 0;
+        a:hover {
+          color: white;
+        }
+      }
+      .active {
+        background-color: $root-bg;
+        position: relative;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          width: $border-radius;
+          height: $border-radius;
+          background: $header-nav-bg;
+        }
+        &::before {
+          left: calc($border-radius * -1);
+          border-radius: 0 0 100vw 0;
+          box-shadow: 5px 5px 0 5px $root-bg;
+          bottom: 0;
+        }
+        &::after {
+          right: calc($border-radius * -1);
+          border-radius: 0 0 0 100vw;
+          box-shadow: -5px 5px 0 5px $root-bg;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

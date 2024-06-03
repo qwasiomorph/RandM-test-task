@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  gap: 1rem;
+}
+
+.imageAside {
+  img {
+    border-radius: 3rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 760px) {
+  .container {
+    gap: 3rem;
+    grid-template-columns: 300px 1fr 1fr;
+    &--wo-image {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
