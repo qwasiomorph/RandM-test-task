@@ -1,0 +1,70 @@
+$header-bg: #123;
+$header-nav-bg: rgb(70, 92, 115);
+$root-bg: #242424;
+$status-alive: rgb(85, 204, 68);
+$status-dead: rgb(214, 61, 46);
+$status-unknown: rgb(158, 158, 158);
+$list-item-bg: rgb(60, 62, 68);
+$text-color: rgba(255, 255, 255, 0.87);
+$link-hover-color: rgb(255, 152, 0);
+
+$text-color-inverse: #213547;
+$root-bg-inverse: #ffffff;
+$link-hover-color-inverse: #535bf2;
+
+$border-radius: 1rem;
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  color: $text-color-inverse;
+  background-color: $root-bg-inverse;
+  .searchInput {
+    background-color: white;
+    border-color: $header-nav-bg;
+    &:hover {
+      border-color: $header-bg;
+    }
+    &:focus-within {
+      border-color: rgb(18, 18, 18);
+    }
+  }
+  .list__item--hasImage:hover {
+    color: $text-color;
+  }
+  .navList {
+    li {
+      a:hover {
+        color: $text-color-inverse;
+      }
+    }
+    .active {
+      background-color: $root-bg-inverse;
+      a {
+        color: $text-color-inverse;
+      }
+      &::before {
+        box-shadow: 5px 5px 0 5px $root-bg-inverse;
+      }
+      &::after {
+        box-shadow: -5px 5px 0 5px $root-bg-inverse;
+      }
+    }
+  }
+  a {
+    color: $text-color-inverse;
+  }
+  a:hover {
+    color: $link-hover-color-inverse;
+  }
+  .list__item {
+    a {
+      color: white;
+    }
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  color: $text-color;
+  background-color: $root-bg;
+}
