@@ -6,11 +6,8 @@ import reactRecommended from "eslint-plugin-react/configs/recommended.js";
 
 export default [
   {
-    ignores: ["dist/**/*"],
-  },
-  {
     files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
-    ignores: ["dist/**/*"],
+    ignores: ["dist/**/*", "node_modules/*"],
     ...reactRecommended,
     settings: {
       version: "detect",
@@ -37,5 +34,8 @@ export default [
     rules: {
       //rules here
     },
+    // exports: {
+    //   extends: ["react-app", "react-app/jest"],
+    // },
   },
 ];

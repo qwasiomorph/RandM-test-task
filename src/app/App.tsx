@@ -1,11 +1,16 @@
 import { Outlet } from "react-router-dom";
 
+import Header from "../widgets/Header/Header";
+
+import styles from "./App.module.scss";
+
 function App() {
   return (
     <>
-      <div>
+      <Header />
+      <main className={styles.wrapper}>
         <Outlet />
-      </div>
+      </main>
     </>
   );
 }
